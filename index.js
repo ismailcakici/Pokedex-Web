@@ -12,3 +12,8 @@ $(function () {
     e.preventDefault();
   });
 });
+
+$(".see-pokemons-btn").click(function (e) {
+  document.getElementById("pokedex-section").scrollIntoView();
+  e.preventDefault();
+});

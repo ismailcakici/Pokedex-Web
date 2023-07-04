@@ -30,10 +30,56 @@
     position: relative;
     bottom: 100;
   }
+
+  .image-container img {
+    width: 375;
+    height: 380;
+  }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1300px) {
   .nav-list-item {
+    font-size: 20px;
+  }
+
+  #home-section {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .content-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container {
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top: 100;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content-container span {
+    font-size: 46px;
+    letter-spacing: 2px;
+    margin-bottom: 20;
+  }
+
+  .content-container p {
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-bottom: 10;
+  }
+
+  .see-pokemons-btn {
+    width: 200px;
     font-size: 20px;
   }
 }
