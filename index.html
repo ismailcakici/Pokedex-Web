@@ -22,6 +22,7 @@
         <div class="line"></div>
       </div>
     </nav>
+    <!-- End Of Nav Bar-->
     <!-- Home Section -->
     <section class="section" id="home-section">
       <div class="content-container">
@@ -38,12 +39,27 @@
         <button class="see-pokemons-btn">See Pokemons</button>
       </div>
       <div class="image-container">
-        <img src="assets/banner.png" alt="banner-pic" />
+        <img src="assets/banner.png" alt="banner-pic" id="banner-img" />
       </div>
     </section>
+    <!-- End Of Home Section -->
     <!-- Pokedex Section -->
-    <section class="section" id="pokedex-section"></section>
+    <section class="section" id="pokedex-section">
+      <span
+        >800
+        <h1>Pokemons</h1>
+        for you to choose your favorite</span
+      >
+      <input
+        type="text"
+        class="search-bar"
+        id="search-bar"
+        placeholder="Search Pokemon..."
+      />
+      <div class="poke-container" id="poke-container"></div>
+    </section>
+    <!-- End Of Pokedex Section -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
