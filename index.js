@@ -34,7 +34,7 @@ $(".see-pokemons-btn").click(function (e) {
 });
 
 // fetching pokemons
-const pokeCount = 20;
+const pokeCount = 50;
 const initPokemon = async () => {
   for (let i = 1; i < pokeCount; i++) {
     await getPokemon(i);
@@ -42,24 +42,9 @@ const initPokemon = async () => {
 };
 
 const getPokemon = async (id) => {
-  let res = await fetch(pokedexURL + id);
-  let data = await res.json();
+  let data = await fetchJson(pokedexURL + id);
   createPokemonBox(data);
 };
-
-// search pokemon
-
-searchInput.addEventListener("input", function () {
-  const pokeNames = document.querySelectorAll(".poke-name");
-  const search = searchInput.value.toLowerCase();
-
-  pokeNames.forEach((pokeName) => {
-    pokeName.parentElement.style.display = "flex";
-    if (!pokeName.innerHTML.toLowerCase().includes(search)) {
-      pokeName.parentElement.style.display = "none";
-    }
-  });
-});
 
 // pokebox
 const createPokemonBox = (pokemon) => {
@@ -84,24 +69,38 @@ const createPokemonBox = (pokemon) => {
   pokemonEl.innerHTML = `
   <img
   src="${image}"
-/>
-<h1 class="poke-name">${name}</h1>
-<div class="stats-container">
-  <div class="attack-container">
+  />
+  <h1 class="poke-name">${name}</h1>
+  <div class="stats-container">
+   <div class="attack-container">
     <div class="circular-stat">${attack}</div>
     <h4>Atk</h4>
-  </div>
-  <div class="defense-container">
-    <div class="circular-stat">${defense}</div>
+   </div>
+   <div class="defense-container">
+     <div class="circular-stat">${defense}</div>
     <h4>Def</h4>
+   </div>
   </div>
-</div>
-<div class="type-container" style="background-color : ${boxColor}">
+  <div class="type-container" style="background-color : ${boxColor}">
   <div class="poke-type" style="color : black">${type}</div>
-</div>
+  </div>
   `;
 
   pokeContainer.appendChild(pokemonEl);
 };
+
+// search pokemon
+
+searchInput.addEventListener("input", function () {
+  const pokeNames = document.querySelectorAll(".poke-name");
+  const search = searchInput.value.toLowerCase();
+
+  pokeNames.forEach((pokeName) => {
+    pokeName.parentElement.style.display = "flex";
+    if (!pokeName.innerHTML.toLowerCase().includes(search)) {
+      pokeName.parentElement.style.display = "none";
+    }
+  });
+});
 
 initPokemon();
